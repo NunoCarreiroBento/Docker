@@ -6,9 +6,9 @@ RUN apk add --update py2-pip
 # upgrade pip
 RUN pip install --upgrade pip
 
-COPY app.py .
+COPY app.py /usr/src/app/
 
-CMD ["python", "app.py"]
+CMD ["python", "/usr/src/app/app.py"]
 
 # our base image
 #FROM alpine:3.5
