@@ -6,6 +6,10 @@ RUN apk add --update py2-pip
 # upgrade pip
 RUN pip install --upgrade pip
 
+# install Python modules needed by the Python app
+COPY requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir --trusted-host pypi.python.org -r /usr/src/app/requirements.txt
+
 COPY app.py /usr/src/app/
 
 CMD ["python", "/usr/src/app/app.py"]
